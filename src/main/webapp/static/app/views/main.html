@@ -1,0 +1,19 @@
+<div ng-controller="MainCtrl">
+    <h1>ToDo List</h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Creating Date</th>
+                <th>Author</th>
+                <th>Content</th>
+            </tr>
+            <tr ng-repeat="task in tasks">
+                <td>{{task.creationDate | date}}</td>
+                <td>{{task.author}}</td>
+                <td>{{task.content}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
