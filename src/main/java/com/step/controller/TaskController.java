@@ -4,52 +4,54 @@ import com.google.common.base.Strings;
 import com.step.entity.Task;
 import com.step.service.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Calendar;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/task")
+@CrossOrigin(origins = "http://localhost:9000")
 public class TaskController {
 
     @Autowired
     TaskRepository taskRepository;
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public Task getNewDefaultTask() {
-        Task task = new Task();
+//    @CrossOrigin(origins = "http://localhost:9000")
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
         task.setCreationDate(Calendar.getInstance());
-        task.setAuthor("Alex");
-        task.setContent("Default");
-
-        return taskRepository.save(task);
+        task.setAuthor(Strings.isNullOrEmpty(task.getAuthor()) ? "User" : task.getAuthor());
+        return new ResponseEntity<>(taskRepository.save(task), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/new/{author}/{content}", method = RequestMethod.GET)
-    public Task getNewTask(@PathVariable String author, @PathVariable String content) {
-
-        Task task = new Task();
+//    @CrossOrigin(origins = "http://localhost:9000")
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public ResponseEntity<Task> updateTask(@RequestBody Task task) {
         task.setCreationDate(Calendar.getInstance());
-        task.setAuthor(Strings.isNullOrEmpty(author) ? "User" : author);
-        task.setContent(content);
-
-        return taskRepository.save(task);
+        return new ResponseEntity<>(taskRepository.save(task), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:9000")
-    @GetMapping("/all")
+//    @CrossOrigin(origins = "http://localhost:9000")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public Iterable<Task> all() {
         return taskRepository.findAll();
     }
 
-    @RequestMapping(value = "/{author}", method = RequestMethod.GET)
-    public List<Task> getAllTasksByAuthor(@PathVariable String author) {
-        return taskRepository.findByAuthor(author);
+//    @CrossOrigin(origins = "http://localhost:9000")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Task getTaskById(@PathVariable Long id) {
+        return taskRepository.findOne(id);
     }
 
+//    @CrossOrigin(origins = "http://localhost:9000")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.OK)
     public void deleteTask(@PathVariable Long id) {
         taskRepository.delete(id);
     }

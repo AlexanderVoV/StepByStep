@@ -1,0 +1,34 @@
+<div ng-controller="TaskCtrl">
+    <md-content layout-gt-sm="row" layout-padding>
+        <h3>Create task</h3>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Author</label>
+                <input ng-model="newTask.author">
+            </md-input-container>
+        </div>
+        <div layout-gt-md="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Content</label>
+                <input ng-model="newTask.content">
+            </md-input-container>
+        </div>
+        <md-button class="md-accent lg-raised lg-hue-1" ng-click="create()">Create</md-button>
+    </md-content>
+
+    <md-card ng-repeat="task in tasks">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{task.content}}</span>
+                <span class="md-subhead">{{task.author}} // {{task.creationDate | date}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"></div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-warn" ng-click="showPopup($event)">Edit</md-button>
+            <md-button class="md-primary" ng-click="delete()">Delete</md-button>
+        </md-card-actions>
+    </md-card>
+</div>

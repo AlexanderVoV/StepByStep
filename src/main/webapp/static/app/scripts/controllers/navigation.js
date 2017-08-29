@@ -5,7 +5,7 @@ angular.module('testProjectApp')
         $scope.tab = 'home';
         $scope.navBarItemList = [
             {view:'home', label: 'Home'},
-            {view:'edit', label: 'Edit'}
+            {view:'task', label: 'Task'}
         ];
 
         $scope.selectTab = function (setTab) {

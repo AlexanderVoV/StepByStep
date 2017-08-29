@@ -8,15 +8,6 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-    .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-        $scope.tasks = [];
+    .controller('MainCtrl', ['$scope', function ($scope) {
 
-        $http.get('http://localhost:8080/task/all')
-            .then(successCallback, errorCallback);
-        function successCallback(response) {
-            $scope.tasks = response.data;
-        }
-        function errorCallback() {
-            throw new Error('Error!!!');
-        }
     }]);

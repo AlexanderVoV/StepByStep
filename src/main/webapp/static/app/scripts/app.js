@@ -30,10 +30,9 @@ angular.module('testProjectApp', [
                     controller: 'MainCtrl',
                     controllerAs: 'main'
                 })
-                .when('/edit', {
-                    templateUrl: '/views/edit.html',
-                    controller: 'EditCtrl',
-                    controllerAs: 'edit'
+                .when('/task', {
+                    templateUrl: '/views/task.html',
+                    controller: 'TaskCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'
