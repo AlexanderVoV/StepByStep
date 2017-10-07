@@ -4,18 +4,17 @@ import javax.persistence.*;
 import java.util.Calendar;
 
 @Entity
-@Table(name="TASKS")
+//@Table(name="TASKS")
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
-    @Column(name = "creation_date")
+//    @Column(name = "creation_date")
     private Calendar creationDate;
-    @Column(name = "author")
+//    @Column(name = "author")
     private String author;
-    @Column(name = "content")
+//    @Column(name = "content")
     private String content;
 
     public Task() {}
@@ -24,11 +23,11 @@ public class Task {
         this.content = content;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
