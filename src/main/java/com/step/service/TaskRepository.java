@@ -1,14 +1,14 @@
 package com.step.service;
 
 import com.step.entity.Task;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface TaskRepository extends CrudRepository<Task, Long> {
+@Configuration
+public interface TaskRepository extends MongoRepository<Task, String> {
     List<Task> findByAuthor(String author);
     void deleteByAuthor(String author);
 }
