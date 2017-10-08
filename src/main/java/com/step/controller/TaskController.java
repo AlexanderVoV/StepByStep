@@ -11,7 +11,7 @@ import java.util.Calendar;
 
 @RestController
 @RequestMapping(value = "/task")
-@CrossOrigin(origins = "http://192.168.1.101:9000")
+@CrossOrigin(origins = "http://localhost:9000")
 public class TaskController {
 
     @Autowired
@@ -37,13 +37,13 @@ public class TaskController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Task getTaskById(@PathVariable String id) {
-        return taskRepository.findOne(id);
+        return taskRepository.findById(id).get();
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteTask(@PathVariable String id) {
-        taskRepository.delete(id);
+        taskRepository.deleteById(id);
     }
 
     @RequestMapping(value = "/delete/all/{author}", method = RequestMethod.DELETE)

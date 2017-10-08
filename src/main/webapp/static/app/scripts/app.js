@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc overview
- * @name testProjectApp
+ * @name StepByStep
  * @description
- * # testProjectApp
+ * # StepByStep
  *
  * Main module of the application.
  */
-angular.module('testProjectApp', [
+angular.module('StepByStep', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

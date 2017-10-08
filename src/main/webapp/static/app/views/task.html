@@ -7,13 +7,14 @@
                 <input ng-model="newTask.author">
             </md-input-container>
         </div>
+        <!--TODO Add validation-->
         <div layout-gt-md="row">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Content</label>
-                <input ng-model="newTask.content">
+                <input ng-model="newTask.content" required="required">
             </md-input-container>
         </div>
-        <md-button class="md-accent lg-raised lg-hue-1" ng-click="create()">Create</md-button>
+        <md-button type="submit" class="md-accent lg-raised lg-hue-1" ng-click="create()">Create</md-button>
     </md-content>
 
     <md-card ng-repeat="task in tasks">

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name testProjectApp.controller:MainCtrl
+ * @name StepByStep.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the testProjectApp
+ * Controller of the StepByStep
  */
-angular.module('testProjectApp')
+angular.module('StepByStep')
     .controller('MainCtrl', ['$scope', function ($scope) {
 
     }]);

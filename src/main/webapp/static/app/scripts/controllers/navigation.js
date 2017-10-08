@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testProjectApp')
+angular.module('StepByStep')
     .controller('NavController', ['$scope', function ($scope) {
         $scope.tab = 'home';
         $scope.navBarItemList = [

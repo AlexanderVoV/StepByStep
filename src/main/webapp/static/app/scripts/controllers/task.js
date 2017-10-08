@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testProjectApp')
+angular.module('StepByStep')
     .controller('TaskCtrl', ['$scope', '$http', '$mdDialog', function ($scope, $http, $mdDialog) {
         var server = 'http://localhost:8080';
         $scope.newTask = {};

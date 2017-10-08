@@ -73,8 +73,8 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '192.168.1.101',
+        // Change this to '192.168.1.101' to access the server from outside.
+        hostname: 'localhost',
         livereload: 35729
       },
       livereload: {
@@ -341,7 +341,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'testProjectApp',
+          module: 'StepByStep',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
