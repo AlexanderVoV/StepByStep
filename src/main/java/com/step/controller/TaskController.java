@@ -14,8 +14,6 @@ import java.util.Calendar;
 public class TaskController {
 
     private TaskRepository taskRepository;
-    public TaskController() {}
-
     public TaskController(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }

@@ -3,18 +3,12 @@ package com.step.entity;
 import javax.persistence.*;
 import java.util.Calendar;
 
-@Entity
-//@Table(name="TASKS")
 public class Task {
 
     @Id
     private String id;
-
-//    @Column(name = "creation_date")
     private Calendar creationDate;
-//    @Column(name = "author")
     private String author;
-//    @Column(name = "content")
     private String content;
 
     public Task() {}
